@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Varela+Round&display=swap');
+@import "tailwindcss";
+
+@theme {
+
+  --accent: #ffb347;
+
+  --color-background: #2c2621;
+  --color-foreground: #efebe9;
+
+  --color-card: #141a1f;
+  
+  --color-primary: #20b2a6;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #1f22830;
+  --color-secondary-foreground: #20b2a6;
+
+  --color-muted: #252e37;
+  --color-muted-foreground: #7a8491;
+
+  --color-border: #242b32;
+
+  --radius: 0.75rem;
+
+  --color-highlight: #f5a623;
+  --color-surface: #1a2329;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+
+  }
+
+  body{
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Quicksand", sans-serif;
+
+  }
+
+  .font-serif {
+    font-family: "Varela Round", serif;
+  }
+
+
+}
+
+@layer components{
+  .glass {
+    background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
+    backdrop-filter: blur(16px);
+    border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+  }
+
+  .glass-strong{
+    background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    backdrop-filter: blur(24px);
+    border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  }
+}
+
+@layer utilities {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+  .animate-fade-in{
+    animation: fadeIn 0.2s ease-out both;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--accent), #ff8c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip:text;
+  }
+
+}
